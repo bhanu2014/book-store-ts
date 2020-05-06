@@ -2,15 +2,21 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import './Header.css'
+import { Book } from '../book/BookInterface'
 
-function Header() {
+
+interface RootState {
+  cart: Book[]
+}
+
+const Header: React.FC = () => {
 
 
-    const cart = useSelector(state => state?.cart);
+    const cart = useSelector((state: RootState) => state?.cart);
 
     const resRF = () => {
-        var x = document.getElementById("myTopnav");
-        if (x.className === "mainnav") {
+        var x: any = document.getElementById("myTopnav");
+        if (x?.className === "mainnav") {
           x.className += " responsive";
         } else {
           x.className = "mainnav";
