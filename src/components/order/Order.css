@@ -1,0 +1,30 @@
+.order_box{
+	border: 1px solid #ddd;
+	margin-bottom: 15px;
+}
+.status_table{
+	width: 100%;
+	background:#ddd;
+}
+.status_table td{
+	padding: 5px 15px;
+}
+.text-right{
+	text-align: right;
+}
+.table_span{
+	margin-left: 5px;
+}
+.status_inside_table{
+	width: 100%;
+}
+.list_img{
+	width: 100px;
+}
+.status_inside_table td{
+	padding: 8px;
+}
+.status_img{
+	width: 10%;
+	text-align: center;
+}

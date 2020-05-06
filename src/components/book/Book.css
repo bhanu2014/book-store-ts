@@ -1,0 +1,120 @@
+.mainnav {
+	overflow: hidden;
+	background-color: #333;
+}
+
+.mainnav a {
+	float: left;
+	display: block;
+	color: #f2f2f2;
+	text-align: center;
+	padding: 18px 16px;
+	text-decoration: none;
+	font-size: 17px;
+}
+
+.mainnav a:hover {
+	background-color: #ddd;
+	color: black;
+}
+
+.mainnav a.active {
+	background-color: #4CAF50;
+	color: white;
+	padding: 18px 15px;
+}
+
+.mainnav .baricon {
+	display: none;
+	padding: 14px 15px;
+}
+.bars{
+	width: 32px;
+	height: 4px;
+	background-color: #fff;
+	margin: 5px 0 0px;
+}
+.menu-right{
+	display: block;
+	float: right;
+}
+.icon_heading{
+	font-weight: 500;
+	font-family: Arial Black, Gadget, sans-serif;
+	padding: 14px 15px !important;
+	font-size: 20px !important;
+}
+.icon_heading:hover{
+	background-color: #333 !important;
+	color: #fff !important;
+}
+
+.books_card {
+	flex: 1 1 calc(18% - 8px);
+	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+	transition: 0.3s;
+	border-radius: 5px;
+	margin: 10px;
+	width: 18%;
+	/*max-width: 250px;*/
+}
+.books_card:hover {
+	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+.books_card img {
+	border-radius: 5px 5px 0 0;
+	max-height: 300px;
+	object-fit: cover;
+	object-position: top;
+}
+.books_card .container {
+	padding: 8px 8px;
+}
+.books_card h4{
+	margin: 10px 0px 5px;
+	font-size: 16px;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+.books_card p{
+	margin: 10px 0px 5px;
+	font-size: 14px;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+.book_btn, .product_btns{
+	background: #2f3750;
+	color: #fff;
+	padding: 10px;
+	border: none;
+	border-radius: 5px;
+	margin: 5px 0px;
+}
+.product_btns{
+	margin: 5px 10px 0px 0px;
+	padding: 10px 20px;
+}
+.btn2{
+	background: #1ab39c;
+}
+.text-center{
+	text-align: center;
+}
+
+@media only screen and (min-width: 601px) and (max-width: 992px){
+	.books_card{
+		width: 30%;
+	}
+}
+@media only screen and (min-width: 450px) and (max-width: 600px){
+	.books_card{
+		width: 46%;
+	}
+}
+@media only screen and (max-width: 449px){
+	.books_card{
+		width: 96%;
+	}
+}
