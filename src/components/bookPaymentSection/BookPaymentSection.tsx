@@ -1,5 +1,5 @@
 import React from 'react'
-import './BookPaymentSection.css'
+import './BookPaymentSection.scss'
 import { BookPaymentDetail } from './BookPaymentInterface'
 
 interface Props {
@@ -11,6 +11,7 @@ const BookPaymentSection: React.FC<Props> = ({paymentInfo, checkoutOrder}) => {
     return (
         <div className="">
             <h2 className="shipping_heading">Payment Info</h2>
+            <div className="cart_div">
             <table className="cart_table">
                 <tbody>
                     <tr>
@@ -32,7 +33,9 @@ const BookPaymentSection: React.FC<Props> = ({paymentInfo, checkoutOrder}) => {
                 </tbody>
             </table>
             <div className="text-right"><button type="button" className="product_btns btn1">Cancel</button>
-                <button type="button" className="product_btns btn2" onClick={checkoutOrder}>Checkout Address</button></div>
+                <button type="button" className="product_btns btn2" onClick={checkoutOrder}>Checkout</button></div>
+            </div>
+            
         </div>
     )
 }

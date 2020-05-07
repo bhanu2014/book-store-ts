@@ -2,7 +2,7 @@ import {
   ADD_TO_CART, EMPTY_CART
 } from "../actions";
 
-export default (state = [], action) => {
+export default (state = [], action:any) => {
   switch (action.type) {
 
     case `${ADD_TO_CART}`: {

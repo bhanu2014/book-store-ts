@@ -1,9 +1,0 @@
-.container-main{
-	padding: 15px;
-}
-
-.books_box{
-	display: flex;
-	flex-flow: row wrap;
-	position: relative;
-}

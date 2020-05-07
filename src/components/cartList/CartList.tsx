@@ -1,5 +1,5 @@
 import React from 'react'
-import './CartList.css'
+import './CartList.scss'
 import { Book } from '../book/BookInterface'
 
 interface Props {

@@ -2,16 +2,20 @@ import React, { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import {emptyCart} from '../../store/actions/cart'
 import {createOrder} from '../../store/actions/order'
+import {updateAddress} from '../../store/actions/address'
 import BookPaymentSection from '../../components/bookPaymentSection/BookPaymentSection'
 import CartList from '../../components/cartList/CartList'
-import Address from '../../components/address/Address'
-import './Checkout.css'
+import AddressComponent from '../../components/address/Address'
+import './Checkout.scss'
 import { Book } from '../../components/book/BookInterface'
 import { Order } from '../../components/order/OrderInterface'
+import {Address} from '../../components/address/AddressInterface'
 import { BookPaymentDetail } from '../../components/bookPaymentSection/BookPaymentInterface'
 
+
 interface RootState {
-    cart: Book[]
+    cart: Book[];
+    address:Address
   } 
 
 const Checkout: React.FC = () => {
@@ -21,6 +25,7 @@ const Checkout: React.FC = () => {
     const [isCheckoutSuccess, setIsCheckoutSuccess] = useState(false)
 
     const cart = useSelector((state: RootState) => state?.cart);
+    const address = useSelector((state: RootState) => state?.address);
 
 
     useEffect(() => {
@@ -30,7 +35,8 @@ const Checkout: React.FC = () => {
         bookPaymentDetail.total = cart.reduce((aggr,val) => aggr+val.price, 0)
         bookPaymentDetail.tax = parseFloat(((12/ 100) * bookPaymentDetail.total).toFixed(2))
         bookPaymentDetail.shippingCharge = parseFloat(((5/ 100) * bookPaymentDetail.total).toFixed(2))
-        bookPaymentDetail.finalPrice = bookPaymentDetail?.total + bookPaymentDetail?.tax + bookPaymentDetail?.shippingCharge
+        let temp = bookPaymentDetail?.total + bookPaymentDetail?.tax + bookPaymentDetail?.shippingCharge
+        bookPaymentDetail.finalPrice = parseFloat(temp.toFixed(2))
         setPaymentInfo(bookPaymentDetail)
        }
        
@@ -41,12 +47,18 @@ const Checkout: React.FC = () => {
             orderId: Math.random().toString(36).slice(2),
             items: [...cart],
             status: process.env.REACT_APP_DELIVERED,
-            date: new Date()
+            date: new Date(),
+            address: address
         }
         
         dispatch(createOrder(newOrder))
         dispatch(emptyCart())
         setIsCheckoutSuccess(true)
+    }
+
+    const onChangeAddressHandler = (address: Address) => {
+        console.log("address", address)
+        dispatch(updateAddress({...address}))
     }
 
     if (isCheckoutSuccess) {
@@ -68,7 +80,7 @@ const Checkout: React.FC = () => {
             <section>
                 <div className="container-main">
                     <div className="shipping_div">
-                        <Address />                        
+                        <AddressComponent address={address} onChangeAddressHandler={onChangeAddressHandler}/>                        
                     </div>
                     <div className="shopping_div">
                         <CartList cart={cart}/>

@@ -1,4 +1,5 @@
 export interface Book{
+    id: number,
     title: string,
     isbn: string,
     pageCount: string,
@@ -9,5 +10,6 @@ export interface Book{
     status: string,
     categories:Array<string>,
     price: number,
-    author: string
+    author: string,
+    isBought:boolean
   }

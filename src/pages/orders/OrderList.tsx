@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import  OrderComponent from '../../components/order/Order'
-import './OrderList.css'
+import './OrderList.scss'
 import { Book } from '../../components/book/BookInterface'
 import {Order, OrderBook} from '../../components/order/OrderInterface'
 
@@ -21,6 +21,7 @@ const OrderList: React.FC = () => {
 
                 if(val?.items && val?.items.length > 0) {
                     const modArr: OrderBook[] = val?.items?.map((obj: any) => {
+                        obj.address = val?.address
                         obj.status = val?.status
                         obj.date = val?.date
                         return obj

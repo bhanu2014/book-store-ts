@@ -3,7 +3,7 @@ import {
 
 } from "../actions";
 
-export default (state = [], action) => {
+export default (state = [], action:any) => {
   switch (action.type) {
 
     case `${CREATE_ORDER}`: {

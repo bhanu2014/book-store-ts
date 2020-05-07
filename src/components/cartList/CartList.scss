@@ -1,3 +1,5 @@
+@import "../../main.scss";
+
 .shipping_heading{
 	margin-bottom: 15px;
 }
@@ -6,6 +8,11 @@
 	max-height: 260px;
 	overflow: auto;
 	margin-bottom: 15px;
+	background: #fff; padding: 10px; border-radius: 5px; 
+}
+
+.cart_div{
+	background: #fff; padding: 10px; border-radius: 5px; 
 }
 
 .shipping_table{
@@ -26,6 +33,18 @@
 .shipping_table h5{
 	font-size: 20px;
 }
+
+.text-right {
+	text-align: right;
+}
+
+.product_btns {
+    @include product_btns;
+  }
+  
+  .btn2 {
+    background: #1ab39c;
+  }
 
 @media screen and (max-width: 600px) {
 	.shipping_heading {

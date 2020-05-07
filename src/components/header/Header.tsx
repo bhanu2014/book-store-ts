@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import './Header.css'
 import { Book } from '../book/BookInterface'
+import {HOME,ORDERS,CHECKOUT} from '../../routes/contant'
 
 
 interface RootState {
@@ -26,9 +27,9 @@ const Header: React.FC = () => {
     return <div className="mainnav" id="myTopnav">
         <a href="javascript:void(0)" className="icon_heading">Book store</a>
         <div className="menu-right">
-            <Link to="/">Home</Link>
-            <Link to="/orders">My Orders</Link>
-            <Link to="/checkout">Cart ({cart.length})</Link>
+            <Link to={HOME}>Home</Link>
+            <Link to={ORDERS}>My Orders</Link>
+            <Link to={CHECKOUT}>Cart ({cart.length})</Link>
             <a href="javascript:void(0);" className="baricon" onClick={resRF}>
                 <div className="bars"></div>
                 <div className="bars"></div>

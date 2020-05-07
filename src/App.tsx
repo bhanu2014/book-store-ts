@@ -7,9 +7,9 @@ import {
   Route,
   Link
 } from "react-router-dom";
-import Routes from './Routes'
+import Routes from './routes/Routes'
 import Header from './components/header/Header'
-import './App.css'
+import './App.scss'
 
 function App(): JSX.Element {
   return (
