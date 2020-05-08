@@ -9,6 +9,7 @@
 Light weight JSON server exposes the book data for the client APP.
 Run the command on the root folder of App in a new terminal
 
+### `npm install`
 
 ### `npm start`
 
