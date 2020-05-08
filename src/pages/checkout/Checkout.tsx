@@ -13,7 +13,7 @@ import {Address} from '../../components/address/AddressInterface'
 import { BookPaymentDetail } from '../../components/bookPaymentSection/BookPaymentInterface'
 
 
-interface RootState {
+type RootState = {
     cart: Book[];
     address:Address
   } 

@@ -5,7 +5,7 @@ import './OrderList.scss'
 import { Book } from '../../components/book/BookInterface'
 import {Order, OrderBook} from '../../components/order/OrderInterface'
 
-  interface RootState {
+  type RootState  = {
     orders: Order[]
   }
 

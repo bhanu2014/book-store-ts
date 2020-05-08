@@ -2,7 +2,7 @@ import React from 'react'
 import './CartList.scss'
 import { Book } from '../book/BookInterface'
 
-interface Props {
+type Props = {
     cart: Book[]
 }
 

@@ -6,7 +6,7 @@ import { Book } from '../book/BookInterface'
 import {HOME,ORDERS,CHECKOUT} from '../../routes/contant'
 
 
-interface RootState {
+type RootState = {
   cart: Book[]
 }
 

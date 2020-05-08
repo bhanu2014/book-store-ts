@@ -1,8 +1,10 @@
 $break-small: 449px;
-$break-meduim-min: 450px;
-$break-meduim-max: 600px;
-$break-large-min: 601px;
-$break-large-max: 992px;
+$break-meduim-min1: 450px;
+$break-meduim-max1: 600px;
+$break-meduim-min2: 601px;
+$break-meduim-max2: 992px;
+$break-large-min: 992px;
+$break-large-max: 1050px;
 
 .books_card {
 	flex: 1 1 calc(18% - 8px);
@@ -75,10 +77,19 @@ $break-large-max: 992px;
 
 @media only screen and (min-width: $break-large-min) and (max-width: $break-large-max){
 	.books_card{
-		width: 30%;
+		max-width: 17%;
+ 	   width: auto;
+
 	}
 }
-@media only screen and (min-width: $break-meduim-min) and (max-width: $break-meduim-max){
+
+@media only screen and (min-width: $break-meduim-min2) and (max-width: $break-meduim-max2){
+	.books_card{
+		width: auto;
+		max-width: 30%;
+	}
+}
+@media only screen and (min-width: $break-meduim-min1) and (max-width: $break-meduim-max1){
 	.books_card{
 		width: 46%;
 	}

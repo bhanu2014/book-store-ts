@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Address } from './AddressInterface'
 import './Address.scss'
 
-interface Props {
+type Props = {
     address: Address,
     onChangeAddressHandler: (e: any) => void
 }

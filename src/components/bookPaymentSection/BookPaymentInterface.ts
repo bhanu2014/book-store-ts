@@ -1,4 +1,4 @@
-export interface BookPaymentDetail {
+export interface BookPaymentDetail  {
     total? : number,
     tax?: number,
     shippingCharge?: number,

@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom'
 import {Book} from './BookInterface'
 import './Book.scss'
 
-interface Props {
+type Props = {
     book: Book,
     onClickBuy: (obj: Book) => void,
     index: number

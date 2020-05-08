@@ -2,11 +2,11 @@ import React, {useState} from 'react'
 import './Order.scss'
 import { OrderBook } from './OrderInterface'
 
-interface Props {
+type Props = {
     order: OrderBook
 }
 
-interface MenuHandler {
+type MenuHandler = {
     isBookDetailsActive: boolean; 
     isShippingDetailsActive: boolean
 }
@@ -51,7 +51,7 @@ const OrderComponent: React.FC<Props> = ({ order }) => {
                                             <h2 className="product_heading">{order?.title}</h2>
                                             <h5 className="product_price">{order?.price}$</h5>
                                             <p className="p_desc">Author:<span className="spn_desc">{order?.author}</span></p>
-                                            <p className="p_desc">Address:<span className=""></span></p>
+                                            
                                         </div>
 
                                         if(menuHandler.isShippingDetailsActive)

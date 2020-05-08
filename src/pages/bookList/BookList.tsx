@@ -8,12 +8,12 @@ import {Book } from '../../components/book/BookInterface'
 import "./BookList.scss";
 import {CHECKOUT} from '../../routes/contant'
 
-interface BookReducer {
+type BookReducer = {
   data: Book[],
   count: number
 }
 
-interface RootState {
+type RootState = {
   book: BookReducer
 }
 
@@ -34,7 +34,6 @@ const  BookList: React.FC = () => {
   }, []);
 
   useEffect(() => {
-    console.log("books count useeffect", books.length, count)
     setbooksToRender(books.slice(0,count))
   }, [books, count])
 

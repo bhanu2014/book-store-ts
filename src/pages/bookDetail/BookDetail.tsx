@@ -8,11 +8,11 @@ import { Book } from '../../components/book/BookInterface';
 import {CHECKOUT} from '../../routes/contant'
 import './BookDetail.scss'
 
-interface data {
+  type data = {
     data: Book[]
   }
   
-  interface RootState {
+  type RootState = {
     book: data
   }
 
@@ -59,8 +59,6 @@ const BookDetail: React.FC = () => {
             dispatch(updateBooks(updatedBooks))
         }   
     }
-
-    console.log("selectedBook ",selectedBook)
 
     return (
         <section>
