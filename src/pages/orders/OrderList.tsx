@@ -33,14 +33,11 @@ const OrderList: React.FC = () => {
                     return aggr
                 }
 
-            }, [])
-            console.log("data", data)
+            }, [])            
             setOrderedBooks(data)
         }
 
     }, [orders])
-
-    console.log("orderedBooks ", orderedBooks)
 
     if(orders && orders.length === 0) {
         return <section>

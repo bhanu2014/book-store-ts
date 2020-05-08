@@ -1,13 +1,19 @@
 import React from 'react'
+import {useHistory} from 'react-router-dom'
 import './BookPaymentSection.scss'
 import { BookPaymentDetail } from './BookPaymentInterface'
+import {HOME} from '../../routes/contant'
 
 interface Props {
-    paymentInfo: BookPaymentDetail,
+    paymentInfo: BookPaymentDetail;
+    disableSubmit:boolean;
     checkoutOrder : () => void
 }
 
-const BookPaymentSection: React.FC<Props> = ({paymentInfo, checkoutOrder}) => {
+const BookPaymentSection: React.FC<Props> = ({paymentInfo, disableSubmit,checkoutOrder}) => {
+
+    const history: any = useHistory()
+
     return (
         <div className="">
             <h2 className="shipping_heading">Payment Info</h2>
@@ -32,8 +38,8 @@ const BookPaymentSection: React.FC<Props> = ({paymentInfo, checkoutOrder}) => {
                     </tr>
                 </tbody>
             </table>
-            <div className="text-right"><button type="button" className="product_btns btn1">Cancel</button>
-                <button type="button" className="product_btns btn2" onClick={checkoutOrder}>Checkout</button></div>
+            <div className="text-right"><button type="button" className="product_btns btn1" onClick={(e) => history.push(HOME)}>Cancel</button>
+            <button type="button" disabled={disableSubmit} className="product_btns btn2" onClick={checkoutOrder}>Checkout</button></div>
             </div>
             
         </div>

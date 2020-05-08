@@ -18,7 +18,6 @@ export function* watcherBookSaga() {
     try {
       const response = yield call(fetchBooks);
       const books = response.data;
-      console.log("books ", books)
       yield put(getBooksFulfilled(books));
     
     } catch (error) {

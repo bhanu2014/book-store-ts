@@ -57,7 +57,6 @@ const Checkout: React.FC = () => {
     }
 
     const onChangeAddressHandler = (address: Address) => {
-        console.log("address", address)
         dispatch(updateAddress({...address}))
     }
 
@@ -84,7 +83,7 @@ const Checkout: React.FC = () => {
                     </div>
                     <div className="shopping_div">
                         <CartList cart={cart}/>
-                        <BookPaymentSection paymentInfo={paymentInfo} checkoutOrder={checkoutOrder}/>
+                        <BookPaymentSection disableSubmit={Object.keys(address).length === 0} paymentInfo={paymentInfo} checkoutOrder={checkoutOrder}/>
                     </div>
                 </div>
             </section>

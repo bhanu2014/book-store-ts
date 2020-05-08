@@ -24,6 +24,9 @@ const BookDetail: React.FC = () => {
     const [selectedBook, setSelectedBook] = useState<Book>()
     const books = useSelector((state: RootState) => state?.book?.data);
 
+    useEffect(() => {
+        window.scrollTo(0, 0);
+      }, []);
 
     useEffect(() => {
         setSelectedBook(books.find(book => book?.isbn === isbn))

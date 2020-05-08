@@ -1,10 +1,10 @@
-import React ,{useState, useEffect} from 'react'
-import {Address} from './AddressInterface'
+import React, { useState, useEffect } from 'react'
+import { Address } from './AddressInterface'
 import './Address.scss'
 
 interface Props {
     address: Address,
-    onChangeAddressHandler: (e:any) => void
+    onChangeAddressHandler: (e: any) => void
 }
 
 const AddressComponent: React.FC<Props> = ({ address, onChangeAddressHandler }) => {
@@ -17,26 +17,25 @@ const AddressComponent: React.FC<Props> = ({ address, onChangeAddressHandler }) 
     // }, [])
 
     useEffect(() => {
-        console.log("Address effect", address)
-        if(Object.keys(address).length !== 0) {
-            console.log("###")
+        if (Object.keys(address).length !== 0) {
             setisAddressReadOnly(true)
             setdata(address)
         }
     }, [address])
 
     const onClickEditHandler = () => {
-        console.log("onClickEditHandler handler")
         setisAddressReadOnly(false)
     }
 
     const onClickSaveHandler = () => {
-        console.log("onckicksave handler")
-        onChangeAddressHandler(data)
+        if (data && data.hasOwnProperty("name") && data.hasOwnProperty("email") && data.hasOwnProperty("phoneNumber") && data.hasOwnProperty("shippingAddress")) {
+            onChangeAddressHandler(data)
+        }
     }
 
-    const onChangeTextHandler = (e:any) => {
-        let d:any = {...data, [e.target.id]:e.target.value}
+    const onChangeTextHandler = (e: React.FormEvent<EventTarget>) => {
+        let target = e.target as HTMLInputElement;
+        let d: any = { ...data, [target.id]: target.value }
         setdata(d)
     }
 
@@ -44,25 +43,31 @@ const AddressComponent: React.FC<Props> = ({ address, onChangeAddressHandler }) 
         <>
             <h2 className="shipping_heading">Shipping Address</h2>
             <div className="form-box">
-                <div className="form-group">
-                    <label className="custom-label">Name</label>
-                    <input type="text" className="form-control" id="name" name="" value={data?.name} onChange={onChangeTextHandler} readOnly={isAddressReadOnly}/>
-                </div>
-                <div className="form-group">
-                    <label className="custom-label">Email</label>
-                    <input type="email" className="form-control" id="email" name="" value={data?.email} onChange={onChangeTextHandler} readOnly={isAddressReadOnly}/>
-                </div>
-                <div className="form-group">
-                    <label className="custom-label">Phone number</label>
-                    <input type="text" className="form-control" id="phoneNumber" name="" value={data?.phoneNumber} onChange={onChangeTextHandler} readOnly={isAddressReadOnly}/>
-                </div>
-                <div className="form-group">
-                    <label className="custom-label">Address</label>
-                    <textarea className="form-control form-text-area" id="shippingAddress" onChange={onChangeTextHandler} readOnly={isAddressReadOnly} value={data?.shippingAddress}></textarea>
-                </div>
-                <div>
-                <button id="save" type="button" className="product_btns btn2" onClick={(e) => onClickSaveHandler()}>Save Address</button>
-                <button id="edit" type="button" className="product_btns btn1" onClick={onClickEditHandler}>Edit Address</button></div>            </div>
+                <form onSubmit={(e) => {
+                    e.preventDefault();
+                    return  false
+                }}>
+                    <div className="form-group">
+                        <label className="custom-label">Name</label>
+                        <input type="text" className="form-control" id="name" name="name" value={data?.name} onChange={onChangeTextHandler} readOnly={isAddressReadOnly} required />
+                    </div>
+                    <div className="form-group">
+                        <label className="custom-label">Email</label>
+                        <input type="email" className="form-control" id="email" name="email" value={data?.email} onChange={onChangeTextHandler} readOnly={isAddressReadOnly} required />
+                    </div>
+                    <div className="form-group">
+                        <label className="custom-label">Phone number</label>
+                        <input type="text" className="form-control" id="phoneNumber" name="phoneNumber" value={data?.phoneNumber} onChange={onChangeTextHandler} readOnly={isAddressReadOnly} required />
+                    </div>
+                    <div className="form-group">
+                        <label className="custom-label">Address</label>
+                        <textarea className="form-control form-text-area" name="shippingAddress" id="shippingAddress" onChange={onChangeTextHandler} readOnly={isAddressReadOnly} value={data?.shippingAddress} required></textarea>
+                    </div>
+                    <div>
+                        <button id="save" type="submit" className="product_btns btn2" onClick={(e) => onClickSaveHandler()}>Save Address</button>
+                        <button id="edit" type="button" className="product_btns btn1" onClick={onClickEditHandler}>Edit Address</button></div>
+                </form>
+            </div>
         </>
     )
 }

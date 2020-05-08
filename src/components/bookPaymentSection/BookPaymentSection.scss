@@ -5,7 +5,6 @@
 }
 
 .cart_table {
-   
   width: 100%;
   margin-bottom: 15px;
 
@@ -18,13 +17,24 @@
     text-align: right;
   }
 
-  .product_btns {
-    @include product_btns;
+  .disabled {
+    cursor: no-drop;
+    opacity: 0.4;
   }
+}
 
-  .btn2 {
-    background: #1ab39c;
-  }
+.product_btns {
+  @include product_btns;
+}
+
+.product_btns:disabled,
+.product_btns[disabled] {
+  cursor: no-drop;
+  opacity: 0.4;
+}
+
+.btn2 {
+  background: #1ab39c;
 }
 // .cart_table td{
 // 	padding: 8px;
