@@ -4,7 +4,7 @@ import './BookPaymentSection.scss'
 import { BookPaymentDetail } from './BookPaymentInterface'
 import {HOME} from '../../routes/contant'
 
-interface Props {
+type Props = {
     paymentInfo: BookPaymentDetail;
     disableSubmit:boolean;
     checkoutOrder : () => void
