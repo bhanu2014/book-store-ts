@@ -86,12 +86,13 @@ $break-large-max: 1050px;
 @media only screen and (min-width: $break-meduim-min2) and (max-width: $break-meduim-max2){
 	.books_card{
 		width: auto;
-		max-width: 30%;
+		max-width: 29%;
 	}
 }
 @media only screen and (min-width: $break-meduim-min1) and (max-width: $break-meduim-max1){
 	.books_card{
-		width: 46%;
+		max-width: 44%;
+		width: auto;
 	}
 }
 @media only screen and (max-width: $break-small){
